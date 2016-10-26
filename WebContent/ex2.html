@@ -5,12 +5,63 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 <script>
-function h(){
-	var v = "...";
-}
+//null vs undefined
 
-h();
-v();
+var myVar; //객체가 지정되지 않았다.
+var myVar2 = null; //null값이 지정되었다.
+
+console.log(myVar + ":" + myVar2); 
+console.log(myVar == myVar2);  //두개는 true로 나온다. 
+console.log(myVar === myVar2); //객체타입까지 비교해준다. false
+
+var myVar3 = "2";
+var myVar4 = 2;
+console.log(myVar3 == myVar4);	//true로 나온다.
+console.log(myVar3 === myVar4);	//false로 나온다.
+
+console.log(parseInt(myVar3, 10) == myVar4);	//같지만(막 쓸수는 있지만) 자바처럼 10진수로 파싱해서 데이터타입 변환해주고 써주자. 
+console.log(parseInt(myVar3, 10) === myVar4);	//같지만(막 쓸수는 있지만) 10진수로 파싱해서 써주자. 
+
+
+//variable scope
+var i = 20;
+
+function f() {
+//	i = 10; //var를 안붙여주면 전역변수가 된다
+	var i= 10; //var를 붙여주면 지역변수가 된다 
+// 함수바깥에 있는 i지역변수가 있어도 안에 똑같은 i전역변수가 있으면 바깥의 변수가 적용안되고 바로 0이 나와버린다.
+// 변수를 만들땐 꼭 var를 쓰자.
+	console.log(i);
+	i = i - 10;
+} 
+f();
+
+console.log(i);
+
+// statement 구분 ; or \n
+var str = "hello world"
+console.log(str)  // 세미콜론이 없어도 된다. 하지만 자바랑 헷갈릴 수 있으니까 세미콜론은 그대로 쓰자.
+
+// 동적 타이핑(dynamical typing)
+var a = 10;
+console.log(a);
+
+a = "HelloWorld";
+console.log(a);
+//대입시 바로바로 적용되지만 자바처럼 좁혀서 쓰는 버릇을 들이자.
+
+
+//전역(global) 객체 window
+console.log(window.a);
+
+var o = {};
+o.name = "바밤바";
+o.age  = new Number(42);
+o.age.man  = 41;
+
+console.log(window.o.name);
+console.log(window.o.age + ":" + window.o.age.man);
+
 </script>
 </head>
 <body>

@@ -2,17 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>gugudan</title>
 <script type="text/javascript">
 
 document.write( "<pre>" );
 
-for(var i = 1; i <= 9; i++ ){
-	for( var j = 1; j <= 9; j++ ) {
-		document.write( j + " x " + i + " = " + j*i );
-		document.write( "\t" );
-	}
-	document.write( "\n" );
+var first = 9;
+var last = 9;
+
+for(var i = 1; i <= first; i++){
+	for(var j = 1; j <= last; j++){
+		var result = i*j;
+			document.write(i + " * " + j + " = " + result + "  ");
+		document.write("\t")
+		}
+	document.write("\n")
 }
 
 document.write( "</pre>" );
@@ -20,6 +24,5 @@ document.write( "</pre>" );
 </script>
 </head>
 <body>
-
 </body>
 </html>
