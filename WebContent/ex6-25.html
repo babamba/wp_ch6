@@ -3,20 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+div{
+	left:100px;
+	top:200px;
+	position:absolute;
+	background-color:#D94A38;
+	width:90px;
+	height:20px;
+	padding:40px;
+	align:center;
+	color:#999
+	}
+</style>
 <script>
-function mDown( obj ) {
-  obj.style.backgroundColor="#1ec5e5";
-  obj.innerHTML="버튼을 떼주세요.";
+window.onload = function(){
+	var elDiv = document.getElementById("box");
+	
+	box.onmousedown = function(){
+		this.style.backgroundColor = "#00f";
+		elDiv.innerHTML = "마우스를 떼세요"
+
+	}
+	
+	box.onmouseup = function(){
+		this.style.backgroundColor = "#f00";
+		elDiv.innerHTML = "클릭"
+	
+	}
+	
+	box.onmouseover = function(event){
+		
+		//박스를 움직인다.
+		//커서가 밖에 있도록 박스를 움직인다. (left )
+		var left = 0, top = 0;
+		console.log(event.x + ":" + event.y);
+		
+		var random = Math.floor(Math.random() * 10); //0 ~ 9
+		console.log(random);
+		
+		//var left = parseInt(this.style.left) 
+		
+		//this.style.left = left + "px";
+		//this.style.top = top + "px";
+		
+	}
+	
+	
+
 }
-function mUp( obj ) {
-  obj.style.backgroundColor="#D94A38";
-  obj.innerHTML="클릭하세요!";
-}
+
+
+
 </script>
 
 </head>
 <body>
-<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+<div id="box">
 	클릭하세요!
 </div>
 </body>

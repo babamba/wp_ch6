@@ -5,13 +5,35 @@
 <title>Insert title here</title>
 <script>
 
-var escaped = escape("<h3>Here's a headline!</h3>");
+//타이머 ㅎ설정1 =- 한번만 설정
+setTimeout(function(){
+//	window.location.href = "http://localhost:8088/mysite3/main";
+	//console.log("timeout");	
+	console.log("timeout");
+}, 3*1000); //millis 
+
+// 타이머 설정2 - 여러번 실행 되게 할 때(interval)
+var num = 0;
+
+var intervalId = setInterval( function(){
+	console.log(++num);
+	if( num == 10){
+		clearInterval(intervalId);
+	}
+}, 1000);
+
+var url = "http://localhost:8088/mysite3/main";
+console.log(escape(url)); //deprecated
+console.log(encodeURI(url));
+console.log(encodeURIComponent(url));
+
+/* var escaped = escape("<h3>Here's a headline!</h3>");
 //alert( escaped );
 
 var url = "http://mysite.com/?stuff=\"안 대혁!&bar=";
 var encodedURL = encodeURI(url);
 
-alert(encodedURL);
+alert(encodedURL); */
 </script>
 </head>
 <body>
